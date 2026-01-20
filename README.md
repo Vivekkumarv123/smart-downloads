@@ -80,13 +80,13 @@ node index.js --days=2
 ### Use custom mapping:
 
 ```bash
-node index.js --config=config.json
+node index.js --config
 ```
 
 ### Combine options:
 
 ```bash
-node index.js --dry-run --days=3 --config=config.json
+node index.js --dry-run --days=3 --config
 ```
 
 **Always test with `--dry-run` first.**
