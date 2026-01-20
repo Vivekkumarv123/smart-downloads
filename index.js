@@ -11,7 +11,7 @@ const argv = yargs(hideBin(process.argv))
   })
   .argv;
 
-const downloadsPath = path.join(os.homedir(), 'Downloads', 'a');
+const downloadsPath = path.join(os.homedir(), 'Downloads');
 
 console.log('📂 Smart Downloads Organizer\n');
 
