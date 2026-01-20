@@ -7,8 +7,8 @@ import { hideBin } from 'yargs/helpers';
 const argv = yargs(hideBin(process.argv))
   .option('dry-run', { type: 'boolean', default: false, description: 'Simulate file organization' })
   .option('days', { type: 'number', default: 0, description: 'Only organize files older than N days' })
-  .option('config', {type: 'string',describe: 'Use config.json or provide custom config path',default: true
-  })
+  .option('config', { type: 'boolean', describe: 'Use config.json from project root', default: false })
+  .option('config-path', { type: 'string', describe: 'Provide custom config path (overrides --config)', default: '' })
   .argv;
 
 const downloadsPath = path.join(os.homedir(), 'Downloads');
@@ -19,7 +19,7 @@ try {
   const result = organizeDownloads(downloadsPath, {
     dryRun: argv['dry-run'],
     minAgeDays: argv.days,
-    configPath: argv.config
+    configPath: argv['config'] ? true : (argv['config-path'] || false)
   });
 
   if (argv['dry-run'] && result) {
